@@ -1,0 +1,28 @@
+\chapter{Conclusion and Outlook}
+
+\section{Conclusion}
+In this thesis, four state estimation algorithms, namely WLS, EKF, SHGM, and a newly developed estimator called SVR-EKF, are implemented and tested on one balanced IEEE low voltage distribution grid with radial structure and 206 buses. The grid is populated with household loads and PV generators from the City of Basel. After running power flow calculation based on the given load, the benchmark case is created, where power flows and voltages are notably simulated. From this point on, only a part of the active and reactive power injections, power flows and voltages are assumed to be actually measured, depending on the scenario to consider. In order to simulate a realistic situation, noise is added to the measurements. After adding pseudo-measurements at the buses without measurements of active or reactive power injection to ensure system observability, the state estimation algorithms are tested on 30 scenarios with different level and types of measurements. Each scenario consists of 100 cases with a different location of bus meters and branch meters. By comparing the voltage magnitude error $RMSE^{V}$, the active power flow error $RMSE^{P_{flow}}$, and the reactive power flow error $RMSE^{Q_{flow}}$, at all 206 buses, the result shows that SVR-EKF has the highest voltage magnitude accuracy but also leads to high active and reactive power flow error. SHGM has the worst performance over the four estimators in the distribution grid due to the high level of measurements identified as leverage points. WLS is the best estimator for the radial distribution grid, having the smallest active and reactive power flow errors and the second smallest voltage magnitude error. In general, bad pseudo-measurements of active power injection have the most significant negative impact on the cost function of the state estimators.
+\bigskip
+\\By neglecting the interaction between bus meters and branch meters, the influence of the location of different meters on the accuracy of estimators has been investigated based on their distance to the feeder bus and their distribution across the entire grid. The result shows that the distance of the smart meters to the feeder bus has no influence on the accuracy of estimators, however the distribution of branch meters based on Path Search has an effect on the accuracy of active and reactive power flows, which can be reduced if they are well distributed across the grid. In addition, active and reactive power flow errors can be reduced by installing the smart meters at the buses with high overall active energy consumption. Hence, an optimal bus and branch meter location has been suggested based on these empirical outcomes.
+\bigskip
+\\After comparing the simulation with proposed optimal smart meter location and other 100 cases with random smart meter location, the proposed optimal method can reduce voltage magnitude errors when there are meters measuring the voltage magnitude or power flows. The active power flow error can be decreased dramatically by using the proposed meter location strategy. The reactive power flow error can be reduced under the proposed optimal meter location only if the reactive power injections are measured by bus meters or reactive power flows are measured by branch meters.
+
+
+
+\section{Outlook}
+On the basis of this thesis, further work can be carried out. Some possible research directions are:
+\begin{itemize}
+    \item The structure of the tested distribution grid in this project is radial, another meshed grid could also be tested for determining if the proposed optimal meter location method still applies for other grid structures.
+    \item The tested distribution system is assumed to be balanced. But the distribution grid is usually unbalanced in reality. An unbalanced distribution grid could also be tested.
+    \item In the proposed SVR-EKF state estimation algorithm, SVR is used for estimating the voltage magnitude of each bus and EKF is utilized for estimating the voltage phased angle of each bus. If only voltage magnitude, active and reactive power flow are desired by DSO, the EKF can be totally replaced by SVR for directly estimating the desired quantities.
+    \item For simplification, bus and branch meters are assumed to work independently. The actual interaction between bus meters, branch meters, and virtual measurements should be considered in a future work.
+    \item In this work, the proposed optimal meter location for each scenario of measurement penetration has been compared to 100 analog cases with random meter location obtained by Monte-Carlo simulation. In future work, an optimization problem could be formulated in order to actually find the optimal placement of the different meters assuming that their number is fixed.
+    \item For simplification, a constant power factor is assumed for the residential consumers to obtain the reactive power injections, which is not totally realistic. In future work, actual reactive power injections should be collected and used for the simulation.
+
+\end{itemize}
+
+
+
+
+
+\newpage

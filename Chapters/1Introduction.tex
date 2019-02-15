@@ -1,0 +1,42 @@
+\chapter{Introduction}
+
+Power system state estimation has become a mature method for detecting the state of the power system since it has been first formulated by Fred Schweppe as a weighted-least square problem, and it is now widely implemented in a Energy Management System of the power system control center. The `state' of the power system is defined as the voltage magnitudes and voltage phases at each bus because the security of the power system heavily depends on them, and all of the other power flows and power injections in this system can be calculated once the voltage magnitudes and voltage phases are known.
+\bigskip
+\\After several decades of development, there is sufficient measurements redundancy in the transmission grid in order to enable a fully observable system, properly estimate its actual state based on inaccurate but redundant measurements, and detect bad data. With the help of the meters and remote terminals, the information of the circuit breakers' status, the tap position of the transformer, active power flow, and some other measurements could be collected and performed by the Supervisory Control And Data Acquisition (SCADA) system and Phasor Measurement Unit (PMU). Then, state of the system can be obtained by the estimator.
+\section{An Overview of State Estimation}
+Thanks to the large number of meters installed in the power system, high measurements redundancy and information of the system can be obtained. To better utilize the redundant data, a state estimation method is developed based on statistic skills which replaces the traditional power flow calculations due to its high accuracy by considering the noise from smart meters. This also allows to integrate more diverse types of measurements compared to power flow calculations. The estimator is designed to produce the best estimation of the system by minimizing the cost which is defined by the difference between the estimated value and the actual measurement after considering the noise in the actual measurement. Usually, the input parameters of the estimator include bus voltage, power flow on the lines, power injection at buses, topology and parameters of the system, and the state of the power system is defined as the voltage magnitudes and phases at each bus. After processing these raw data, the most probable state of the system is obtained and sent to the Energy Management System (EMS), which utilizes this information for further power system applications such as a contingency analysis, optimal power flow, etc.
+\section{State Estimation in Distribution Grid}
+\\Similar with EMS in the transmission grid, Distribution Management System (DMS) is developed for the distribution grid for viewing the real-time conditions and making optimal operational decisions through on-line power flow calculation and state estimation
+\cite{meliopoulos1996multiphase}, which requires robust and time efficient state estimation algorithms for the distribution grid. However, due to the different properties between the distribution grid and the transmission grid, state estimators in the transmission grid cannot be implemented on the distribution grid directly. Specifically, the main differences between the distribution grid and the transmission grid are:
+\begin{itemize}
+    \item The transmission grid is usually heavily meshed whereas the distribution grid is weakly meshed or even radial.
+    \item Lines in a distribution grid have a lower impedance due to a shorter length and a higher $R/X$ ratio.
+    \item The transmission grid can be simplified into a single phase model because it is operated most of time under 3-phase balanced conditions. However, the distribution grid is usually unbalanced.
+    \item In the transmission grid, a large number of various meters are installed, which gives enough redundancy to the state estimator. But the distribution grid has a limited number of smart meters, making the system unobservable. As a result, pseudo-measurements must be created, which are not actual measurements from smart meters but the synthetic data with larger error, are needed to ensure the observability of the system,  which is a prerequisite before the use of a state estimation algorithm..
+\end{itemize}
+
+\section{Literature Review}
+\\State estimation in power system has been first introduced by Fred Schweppe in 1968, who defined the state estimator as a data processing algorithm for converting redundant meter readings and other available information into an estimate of the state of an electric power system
+\cite{wu1990power}. Fred Schweppe first formulated the state estimation as Weighted Least Squares (WLS) which estimate the most likely state of the system by minimizing the non-linear objective function which sums the weighted squares of the error or difference between the estimated values and the actual values. Because WLS only estimate the state of the system based on the measurements collected in one time step, it is also called static state estimator. 
+There are also algorithms, which are called Forecasting-Aided State Estimation (FASE), estimating the state of the system by considering both the past state of the system and the real-time measurements. One of the most commonly used FASE is the Kalman filter. Kalman filters are algorithms which make the prediction of the system state based on the previous state of the system
+\cite{umamageswari2012comparitive}.
+ Since the relationships between different quantities in power systems are usually non-linear functions, Extended Kalman Filter(EKF) and Unscented Kalman Filter(UKF) are developed, which solve the non-linear equations by linearization and unscented transformation respectively. 
+ \bigskip
+ \\Lamine Mili proposed a robust state estimation based on projection statistic identifying the leverage points of a linearized power system state estimation model. Leverage points are defined as the measurements points which do not follow the pattern of the majority of the point cloud and have a great influence on the final estimated results compared with the other measurements. The accuracy of the estimator is enhanced if the leverage points are good measurements whereas the accuracy of the result decreases if the leverage points have a big gross error or substantial noise. Once the leverage points are detected by projection statistic, the weights of the measurements are redefined such that good leverage points are not down-weighted and bad leverage points are down-weighted. Finally, the state is calculated based on the Schweppe-type GM-estimator with the Huber psi-function (SHGM)
+\cite{mili1996robust}.
+Artificial Neural Networks (ANN) is now widely used for both classic state estimation and auxiliary method for the traditional state estimation algorithms, such as observability analysis and bad data detection. In
+\cite{manitsas2012distribution}, the author introduces ANN for state estimation, bad data detection and identification via a two-stage neural network. The advantages of the ANN-based state estimation algorithm are time-saving because of the off-line training property and the system does not have to be fully observable for running the estimator.
+
+\section{Master Thesis Outline}
+This report is divided into five chapters:
+\begin{itemize}
+    \item Chapter 1 introduces the background knowledge of state estimation algorithms, and the differences between the transmission grid and distribution grid. 
+    \item Chapter 2 introduces the mathematical formulation of four state estimation algorithms.
+    \item In Chapter 3, the model of the distribution grid is detailed. After adding loads to the system and running the power flow calculation for obtaining the benchmark case, noise is added to the measurements and pseudo-measurements are generated for the buses without power injection measurements. Finally, 30 scenarios with different levels and types of measurements are created and four estimators are tested on the system.
+    \item Chapter 4 focuses on analyzing the simulation results and performance for the estimators firstly from the time dimension by investigating the reason why some time step has a higher error compare with the other time steps. Then, the influence of the location of smart meters on the accuracy of the estimation result is analyzed and the optimal smart meters location method is derived based on the simulation results.
+    \item A conclusion and an outlook are presented in Chapter 5. 
+    
+\end{itemize}
+
+\newpage
+

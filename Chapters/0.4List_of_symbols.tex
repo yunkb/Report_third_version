@@ -1,0 +1,124 @@
+\chapter*{List of Symbols}
+\addcontentsline{toc}{chapter}{List of Symbols}
+
+\thispagestyle{plain}
+\newcommand{\ThreeFirstCol}{40pt}
+\newcommand{\ThreeSecondCol}{60pt}
+\newcommand{\ThreeThirdCol}{240pt}
+
+\newcommand{\TwoFirstCol}{112pt}
+\newcommand{\TwoSecondCol}{240pt}
+
+
+\section*{Variables and Parameters}
+\begin{longtable}[l]{p{\ThreeFirstCol} p{\ThreeSecondCol} p{\ThreeThirdCol}} 
+\textbf{Symbol}	& \textbf{Units} & \textbf{Description}
+\smallskip \\
+  $x$  & $-$			& State of system\\
+  $lomed$ & $-$			& Low median value\\
+  $m$	& $-$			& Number of measurements\\
+  $np$  & $-$			& Number of paths\\
+
+\bigskip
+ \\
+ $B/b$  		& Siemens/p.u. 	& Susceptance of line\\
+ $G/g$  		& Siemens/p.u. 	& Conductance of line\\
+ $I$ 		& A 					& Current\\
+ $P_{flow}$		& p.u. 	& Active power flow\\
+ $Q_{flow}/q$		& p.u.	& Reactive power flow/Reactive nodal injection\\
+ $P_{inj}$		& p.u. 	& Active nodal injection\\
+ $Q_{inj}$		& p.u. 	& Reactive nodal injection\\  
+ $R/r$  		& $\Omega$/p.u. 	& Resistance of line\\
+ $S$		& VA 	& Apparent power flow\\ 
+ $U/u$  		& $V$	& Voltage in phasor form\\
+ $V$  		& $p.u.$	& Voltage magnitude\\
+ $X/x$  		& $\Omega$/p.u. 	& Reactance of line\\
+ $Y/y$  		& Siemens/p.u. 	& Complex admittance of line\\
+ $Z/z$  		& $\Omega$/p.u. 	& Impedance of line\\
+
+  $\alpha,\beta$   & $-$	& Smoothing parameters\\
+  $\lambda,\gamma$   & $-$	& SVM parameters\\
+  $\epsilon$   & $-$	& Noise parameter\\
+  $\theta$   & radians	& Voltage angle\\
+  $\sigma$   & $-$	& Standard deviation of measurements\\
+  $\mu$   & $p.u.$	& Expected value\\
+  $\Lambda$ & $-$ & Hat matrix\\
+  $\kappa$ & $-$ & Kernel function\\
+  $\omega$ & $-$ & Weight of measurement\\
+
+  
+
+
+\end{longtable} 
+ 
+\section*{Subscripts}
+\begin{longtable}[l]{p{\TwoFirstCol} p{\TwoSecondCol}}
+\textbf{Symbol}	&  \textbf{Description} \\ 
+\smallskip \\
+$d$ & Vector dimension\\
+$e$ & Estimated value\\
+$error$ & Difference between estimated and real value\\
+$flow$ 	& Power flow\\
+$flow-e$ 	& Estimated power flow\\
+$flow-error$ 	& Estimated power flow error\\
+$gen$ 	& Generator\\
+$inj$ 	& Power injection\\
+$inj-e$ 	& Estimated power injection\\
+$inj-error$ 	& Estimated power injection error\\
+$ideal$ 	& Measurement without noise\\
+$ideal-tot$ 	& All measurement without noise\\
+$k$			& At time step $k$\\
+$mag$ 	& Magnitude\\
+$noise$ 	& Measurement with noise\\
+$p$     & Prediction\\
+$psu$     & Pseudo-measurement\\
+$psu-con$     & Pseudo-measurement for consumption\\
+$sh$ 	& Shunt element\\
+$t$ 	& At time-step $t$\\
+$test$ 	& Test set\\
+$train$     & Training set\\
+
+\end{longtable} 
+\newpage
+
+\section*{Superscripts}
+\begin{longtable}[l]{p{\TwoFirstCol} p{\TwoSecondCol}}
+\textbf{Symbol}	& \textbf{Description} \\
+\smallskip \\
+$^*$			& Optimal solution\\
+$bus$  & Bus\\
+$branch$  & Branch\\
+$e$    & Edge\\
+$et$    & External bus\\
+$k$			& At $k$-th iteration\\
+$max$ 	& Maximum value\\
+$min$ 	& Minimum value\\
+$mis$ 	& Mismatch\\
+$P$    & Active power injection\\
+$Q$    & Reactive power injection\\
+$P_{flow}$    & Active power flow\\
+$Q_{flow}$    & reactive power flow\\
+$tot$    & Total\\
+$v$    & Vertice\\
+$V$    & Voltage magnitude\\
+$\intercal$  & Transpose of matrix\\
+
+\end{longtable} 
+
+\smallskip
+\smallskip
+
+\section*{Notation}
+In this thesis the following notation conventions apply:
+\begin {itemize}
+\item Vectors and matrices are indicated with bold letters.
+\item $\mathbb{R}^n$ and $\mathbb{Z}^n$ are used to denote the n-dimensional space of real and whole numbers, respectively.
+\end{itemize}
+
+
+  
+
+
+
+\newpage
+

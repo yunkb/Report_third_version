@@ -1,0 +1,198 @@
+% LaTeX script for Semester und Diploma Thesis
+% Martin Geidl, April 2004
+% This template can be compiled with pdflatex or traditional latex
+% If used with pdflatex all images have to be in pdf format
+
+
+
+
+
+
+\documentclass[a4paper,11pt,oneside,onecolumn]{book}
+    \usepackage{amsmath,amssymb,amsfonts,amsthm}
+%\documentclass[draft]{book}
+\usepackage[german,english]{babel}
+\usepackage{ae}
+%\usepackage{psfrag}
+\usepackage{amstext,epsfig,amssymb,amsbsy,amsmath}
+\usepackage[latin1]{inputenc}
+%\usepackage{sectsty}
+%\usepackage[germanb]{babel}
+%\usepackage{graphicx}
+%\usepackage{rotating}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+\usepackage{lscape}
+\usepackage{amsmath}
+\DeclareMathOperator{\sign}{sign}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{booktabs}
+\usepackage{blindtext}
+\usepackage{arydshln}
+\usepackage[percent]{overpic}
+\usepackage[most]{tcolorbox}
+\definecolor{blueT}{RGB}{92,138,168}
+\definecolor{greenT}{RGB}{0,140,0}
+\definecolor{purpleT}{RGB}{153,102,204}
+\definecolor{yellowT}{RGB}{255,191,0}
+\definecolor{brownT}{RGB}{110,53,25}
+\definecolor{myGreen}{rgb}{0.0, 0.5, 0.0}   % my Green
+\definecolor{myBlue}{RGB}{31,64,122}        % my Blue
+\definecolor{myRed}{RGB}{168,50,45}         % my Red
+\definecolor{myOrange}{RGB}{220,131,8}      % my Orange
+\definecolor{newBlue}{rgb}{0.06, 0.2, 0.65}
+
+\definecolor{ETH1}{RGB}{31,64,122}      % ETH1
+\definecolor{ETH2}{RGB}{72,90,44}       % ETH2
+\definecolor{ETH3}{RGB}{18,105,176}     % ETH3
+\definecolor{ETH4}{RGB}{114,121,28}     % ETH4
+\definecolor{ETH5}{RGB}{145,5,106}      % ETH5
+\definecolor{ETH6}{RGB}{111,111,100}    % ETH6
+\definecolor{ETH7}{RGB}{168,50,45}      % ETH7
+\definecolor{ETH8}{RGB}{0,122,150}      % ETH8
+\definecolor{ETH9}{RGB}{149,96,19}      % ETH9
+\usepackage{url}
+\usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{graphicx,epstopdf}%\allsectionsfont{\sffamily}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage[hidelinks]{hyperref}
+%\hyphenpenalty 10000
+%\exhyphenpenalty 10000
+\usepackage{array}
+\usepackage[toc,page]{appendix}
+\usepackage{rotating}
+\usepackage{todonotes}
+\usepackage[section]{placeins}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+% \textsubscript defined equivalent to \textsuperscript in latex.ltx
+%\DeclareRobustCommand*\textsubscript[1]{%
+%  \@textsubscript{\selectfont#1}}
+%\def\@textsubscript#1{%
+%  {\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\usepackage[labelfont=bf]{caption} %bold Figure X.x
+%Sap
+\usepackage{geometry} 
+\geometry{a4paper}
+\usepackage{graphicx} 
+\usepackage{booktabs}
+\usepackage{array} 
+\usepackage{paralist} 
+\usepackage{tikz}
+\usepackage{verbatim} 
+%\usepackage{subfig} 
+\usepackage{subcaption}
+\usepackage{cleveref}
+\usepackage{amsmath}
+\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{eurosym}
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{cite}
+% custom packages
+\usepackage{bm} % nice bold maths
+\usepackage{color} % colored letters
+\usepackage{pdfpages} % insert whole pdfs in latex
+\usepackage{tikz} % graphics
+\usetikzlibrary{shapes,backgrounds,arrows,positioning}
+\usepackage{verbatim} 
+\usepackage{graphicx} % for image manipulation
+\usepackage{booktabs} % for table formating
+\usepackage{placeins} % for \floatbarrier
+\usepackage{longtable} % for table of symbols
+\usepackage{mathtools, nccmath}
+\usepackage{xparse, etoolbox}
+\usepackage{url}
+\usepackage{natbib} 
+%\usepackage[demo]{graphicx}
+%\usepackage{subfig}
+\usepackage[ruled]{algorithm2e}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\usepackage{circuitikz}
+\usetikzlibrary{shapes}
+\newcommand{\subeqspace}{5pt}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\bibliographystyle{plain}
+
+
+\begin{document}
+\frontmatter
+
+%Front page (titlepage)
+\input{./Chapters/0.0Titlepage}
+
+%Acknowledgment
+\input{./Chapters/0.1Acknowledgment}
+
+%Abstract
+\input{./Chapters/0.2Abstract}
+
+%Table of contents
+\tableofcontents
+\newpage
+
+%List of Acronyms
+\input{./Chapters/0.3List_of_acronyms}
+
+%List of symbols
+%\input{./Chapters/0.4List_of_symbols}
+
+\listoffigures
+\newpage
+ 
+\listoftables
+\newpage
+
+%\setcounter{page}{0}
+\mainmatter
+
+%1 Introduction
+\input{./Chapters/1Introduction}
+%2
+\input{./Chapters/2Mathematicalformulation}
+%3
+\input{./Chapters/3SystemMoldelling}
+%4
+\input{./Chapters/4Simulation_and_result_analysis}
+
+
+%6 Conclusions and Outlook
+\input{./Chapters/5Conclusions_and_Outlook}
+
+
+
+%Appendix
+\input{./Chapters/Appendix}
+
+
+
+
+
+
+
+
+
+
+\backmatter
+
+% Enter your citations in a file thesis.bib and run BibTex.
+%\nocite{koeppel} \nocite{writing_in_english} \nocite{goeschka}
+%\nocite{oetiker} \nocite{kopka1} \nocite{Bucher2014}
+
+\newpage \addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{thesis}
+
+
+\end{document}

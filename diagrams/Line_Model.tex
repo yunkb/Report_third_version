@@ -1,0 +1,23 @@
+\documentclass{standalone}
+%\documentclass[tightpage]{standalone}
+
+\usepackage{circuitikz}
+\standaloneenv{circuitikz}
+\begin{document}
+\label{fig:Linemodel}
+    \begin{circuitikz}[scale=1.0]
+       \draw
+              (0,0) to [short, o-] (1,0)
+              (6,0) to [short, o-] (0,0)
+              (6,0) to [open, v_<=$V_{m}$] (6,2) % load voltage
+              (6,2) to [short, i_=$P_{ml}+jQ_{ml}$, o-] (5,2) % load power
+              (0,1.95) node[left] {$l$}
+              (6,1.95) node[right] {$m$} 
+              (0,0) to [open, v^<=$V_{l}$] (0,2) % generator voltage
+              (0,2) to [short, o-, i^=$P_{lm}+jQ_{lm}$] (1,2) % generator power
+              (1,2) to [C, l^=${g_{sh}+j{b_{sh}}}$] (1,0) % shunt susceptance
+              (1,2) to [R, l=$G_{lm}$] (3,2) % line resistance
+              (3,2) to [L, l=$jB_{lm}$] (5,2) % line reactance
+              (5,2) to [C] (5,0); % shunt susceptance
+    \end{circuitikz}
+\end{document}    
